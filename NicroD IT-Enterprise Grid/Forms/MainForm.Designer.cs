@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.BottomPanel = new System.Windows.Forms.Panel();
+            this.listBox = new System.Windows.Forms.ListBox();
             this.SelectButton = new System.Windows.Forms.Button();
             this.AddNewButton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.listBox = new System.Windows.Forms.ListBox();
             this.BottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +49,24 @@
             this.BottomPanel.Size = new System.Drawing.Size(110, 161);
             this.BottomPanel.TabIndex = 1;
             // 
+            // listBox
+            // 
+            this.listBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listBox.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listBox.FormattingEnabled = true;
+            this.listBox.ItemHeight = 16;
+            this.listBox.Items.AddRange(new object[] {
+            "Date",
+            "Organisation",
+            "City",
+            "Country",
+            "Manager"});
+            this.listBox.Location = new System.Drawing.Point(2, 3);
+            this.listBox.Name = "listBox";
+            this.listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox.Size = new System.Drawing.Size(107, 84);
+            this.listBox.TabIndex = 2;
+            // 
             // SelectButton
             // 
             this.SelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -59,7 +77,7 @@
             this.SelectButton.TabIndex = 1;
             this.SelectButton.Text = "Select";
             this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            this.SelectButton.Click += new System.EventHandler(this.SelectButton_ClickAsync);
             // 
             // AddNewButton
             // 
@@ -72,7 +90,7 @@
             this.AddNewButton.TabIndex = 0;
             this.AddNewButton.Text = "Add new Item";
             this.AddNewButton.UseVisualStyleBackColor = true;
-            this.AddNewButton.Click += new System.EventHandler(this.AddNewItem_Click);
+            this.AddNewButton.Click += new System.EventHandler(this.AddNewItem_ClickAsync);
             // 
             // dataGridView
             // 
@@ -93,24 +111,6 @@
             this.dataGridView.TabIndex = 0;
             this.dataGridView.RowHeadersWidthChanged += new System.EventHandler(this.DataGridView_RowHeadersWidthChanged);
             this.dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DataGridView_ColumnWidthChanged);
-            // 
-            // listBox
-            // 
-            this.listBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listBox.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listBox.FormattingEnabled = true;
-            this.listBox.ItemHeight = 16;
-            this.listBox.Items.AddRange(new object[] {
-            "Date",
-            "Organisation",
-            "City",
-            "County",
-            "Manager"});
-            this.listBox.Location = new System.Drawing.Point(2, 3);
-            this.listBox.Name = "listBox";
-            this.listBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.listBox.Size = new System.Drawing.Size(107, 84);
-            this.listBox.TabIndex = 2;
             // 
             // MainForm
             // 

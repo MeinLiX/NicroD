@@ -68,7 +68,6 @@ namespace NicroD_IT_Enterprise_Table.Forms
                     catch { }
                 }
                 MessageBox.Show("Text boxes can't be empty.", "Warning");
-
             });
         }
 

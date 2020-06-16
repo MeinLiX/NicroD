@@ -1,12 +1,5 @@
 ﻿using NicroD_IT_Enterprise_Table.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NicroD_IT_Enterprise_Table
@@ -24,19 +17,27 @@ namespace NicroD_IT_Enterprise_Table
             Source.UpdateGrid(ref dataGridView, _context);
         }
 
-        private async void AddNewItem_Click(object sender, EventArgs e)
-        {
-            new AddingForm(_context).ShowDialog(this);
-            await Source.UpdateGrid(ref dataGridView, _context);
-            Source.ResizeByColumn(this, dataGridView);
-        }
-
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             Source.ResizeByColumn(this, dataGridView);
         }
 
+        #region Buttons
+        private async void AddNewItem_ClickAsync(object sender, EventArgs e)
+        {
+            new AddingForm(_context).ShowDialog(this);
+            await Source.UpdateGrid(ref dataGridView, _context);
+            Source.ResizeByColumn(this, dataGridView);
+        }
+        private async void SelectButton_ClickAsync(object sender, EventArgs e)
+        {
+            await Source.UpdateGrid(ref dataGridView, _context, listBox.SelectedItems);
+            Source.ResizeByColumn(this, dataGridView);
+
+        }
+        #endregion
+
+        #region Grids
         private void DataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {
             Source.ResizeByColumn(this, dataGridView);
@@ -46,12 +47,7 @@ namespace NicroD_IT_Enterprise_Table
         {
             Source.ResizeByColumn(this, dataGridView);
         }
+        #endregion
 
-        private void SelectButton_Click(object sender, EventArgs e)
-        {
-            var res = string.Empty;
-            foreach (var i in listBox.SelectedItems) { res += i.ToString()+" "; }
-            MessageBox.Show(res);
-        }
     }
 }
